@@ -25,7 +25,7 @@ class ExpensesItem extends StatelessWidget {
                     Row(
                   children: [
                     Icon(categoryIcon[expense.category]),
-                    const CircularProgressIndicator.adaptive(),
+                    // const CircularProgressIndicator.adaptive(),
                  
                    const SizedBox(width: 10),
 

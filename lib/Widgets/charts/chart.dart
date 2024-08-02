@@ -67,33 +67,35 @@ class Chart extends StatelessWidget {
                 ],
               ),
             ),
-            constraints.minHeight < 200?
-            Container()
-            : const SizedBox(height: 12,),
-             SizedBox(
+            constraints.minHeight < 200
+                ? Container()
+                : const SizedBox(
+                    height: 12,
+                  ),
+            SizedBox(
               height: 10,
             ),
-
-            constraints.minHeight < 200 ? 
-            Container()
-            : Row(
-              children: buckets
-                  .map((e) => Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: Icon(
-                            categoryIcon[e.category],
-                            color: isDarkMode
-                                ? Theme.of(context).colorScheme.primary
-                                : Theme.of(context)
-                                    .colorScheme
-                                    .primary
-                                    .withOpacity(0.7),
-                          ),
-                        ),
-                      ))
-                  .toList(),
-            ),
+            constraints.minHeight < 200
+                ? Container()
+                : Row(
+                    children: buckets
+                        .map((e) => Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: Icon(
+                                  categoryIcon[e.category],
+                                  color: isDarkMode
+                                      ? Theme.of(context).colorScheme.primary
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .primary
+                                          .withOpacity(0.7),
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
           ],
         ),
       );

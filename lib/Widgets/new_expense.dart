@@ -30,34 +30,37 @@ class _NewExpenseState extends State<NewExpense> {
     _amountController.dispose();
   }
 
-  void _ShowDialog(){
-    Platform.isIOS ? 
-                            showCupertinoDialog(context: context, builder: (ctx)=> CupertinoAlertDialog(
-                              title: Text('Erorr'),
-                            content: Text('invalid data'),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(ctx),
-                                child: Text('ok'),
-                              )
-                            ],
-                            ),)
-                        // log('Erorr');
+  void _ShowDialog() {
+    Platform.isIOS
+        ? showCupertinoDialog(
+            context: context,
+            builder: (ctx) => CupertinoAlertDialog(
+              title: Text('Erorr'),
+              content: Text('invalid data'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: Text('ok'),
+                )
+              ],
+            ),
+          )
+        // log('Erorr');
 
-                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        :showDialog(
-                          context: context,
-                          builder: (ctx) => AlertDialog(
-                            title: Text('Erorr'),
-                            content: Text('invalid data'),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(ctx),
-                                child: Text('ok'),
-                              )
-                            ],
-                          ),
-                        );
+        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        : showDialog(
+            context: context,
+            builder: (ctx) => AlertDialog(
+              title: Text('Erorr'),
+              content: Text('invalid data'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: Text('ok'),
+                )
+              ],
+            ),
+          );
   }
 
   // void _saveTitleInput(String inputValue){
@@ -167,7 +170,7 @@ class _NewExpenseState extends State<NewExpense> {
                       if (_titleController.text.trim().isEmpty ||
                           amountIsInValid ||
                           _selectedDate == null) {
-                            _ShowDialog();
+                        _ShowDialog();
                       } else {
                         widget.onAddExpense(
                           Expense(
